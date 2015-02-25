@@ -8,7 +8,7 @@ See [How_to_Install_a_Plugin](http://projects.theforeman.org/projects/foreman/wi
 for how to install Foreman plugins
 
 ```ruby
-gem 'foretello_api_v21', :git => 'https://github.com/isratrade/foretello.git
+gem 'foretello_api_v21', :git => 'https://github.com/fusor/foretello_api_v21.git
 ```
 
 ## Usage
