@@ -22,6 +22,15 @@ module Api
         render :json => @organization, :serializer => OrganizationSerializer
       end
 
+      def create
+        @organization = Organization.new(params[:organization])
+        if @organization.save
+          render :json => @organization, :serializer => OrganizationSerializer
+        else
+          render json: {errors: @organization.errors}, status: 422
+        end
+      end
+
     end
   end
 end
