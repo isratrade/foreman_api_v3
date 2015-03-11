@@ -6,3 +6,4 @@ class LifecycleEnvironmentSerializer < ActiveModel::Serializer
 
   #no child node for counts:{} and permissions: {} which are in v2
 end
+

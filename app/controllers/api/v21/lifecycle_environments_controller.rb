@@ -28,7 +28,24 @@ module Api
         end
       end
 
+      def update
+        if @lifecycle_environment.save
+          ## Add environment to Org
+          #@organization.kt_environments << @environment
+          #@organization.save!
+          render :json => @lifecycle_environment, :serializer => LifecycleEnvironmentSerializer
+        else
+          render json: {errors: @lifecycle_environment.errors}, status: 422
+        end
+      end
+
       private
+
+      def find_lifecycle_environment
+        @lifecycle_environment = ::Katello::KTEnvironment.find_by_id(params[:id])
+        return @lifecycle_environment if @lifecycle_environment
+        return :json => {:error => "Couldn't find organization" }
+      end
 
       def find_organization
         @organization = ::Organization.find_by_id(params[:organization_id])
