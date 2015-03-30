@@ -29,7 +29,7 @@ Summary: Plugin for Foreman & Katello API v2.1, which is based on v2 controllers
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 0.0.1
-Release: 2%{dist}
+Release: 3%{dist}
 Group: Development/Ruby
 License: Distributable
 URL: https://github.com/fusor/foretello_api_v21
@@ -111,6 +111,9 @@ cp -a .%{gem_dir}/* \
 %{gem_dir}/doc/%{gem_name}-%{version}
 
 %changelog
+* Mon Mar 30 2015 John Matthews <jwmatthews@gmail.com> 0.0.1-3
+- add discovered host controller and serializer (jmagen@redhat.com)
+
 * Fri Mar 20 2015 John Matthews <jwmatthews@gmail.com> 0.0.1-2
 - new package built with tito
 
