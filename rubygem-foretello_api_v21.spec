@@ -29,7 +29,7 @@ Summary: Plugin for Foreman & Katello API v2.1, which is based on v2 controllers
 Name: %{?scl_prefix}rubygem-%{gem_name}
 
 Version: 0.0.1
-Release: 4%{dist}
+Release: 5%{dist}
 Group: Development/Ruby
 License: Distributable
 URL: https://github.com/fusor/foretello_api_v21
@@ -111,6 +111,9 @@ cp -a .%{gem_dir}/* \
 %{gem_dir}/doc/%{gem_name}-%{version}
 
 %changelog
+* Tue Apr 07 2015 John Matthews <jwmatthews@gmail.com> 0.0.1-5
+- add PUT rename for discovered hosts (jmagen@redhat.com)
+
 * Mon Mar 30 2015 John Matthews <jwmatthews@gmail.com> 0.0.1-4
 - remove cpus attribute from DiscoveredHostSerializer (jmagen@redhat.com)
 
