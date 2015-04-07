@@ -13,6 +13,27 @@ module Api
         render :json => @discovered_host, :serializer => DiscoveredHostSerializer
       end
 
+      # using rename rather than update since PUT update started the provision
+      # TODO add functional test
+      def rename
+        not_found and return false if params[:id].blank?
+        @discovered_host = ::Host::Discovered.find(params[:id])
+        @discovered_host.update_attributes!(:name => params[:discovered_host][:name])
+        render :json => @discovered_host, :serializer => DiscoveredHostSerializer
+      end
+
+      private
+
+      def action_permission
+        case params[:action]
+        when 'rename'
+          :edit
+        else
+          super
+      end
+  end
+
+
     end
   end
 end

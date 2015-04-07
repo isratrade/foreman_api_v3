@@ -6,5 +6,18 @@ module ForetelloApiV21
     config.autoload_paths += Dir["#{config.root}/app/controllers/concerns"]
     config.autoload_paths += Dir["#{config.root}/app/serializers"]
 
+    initializer 'foretello_api_v21.register_plugin', :after => :finisher_hook do |app|
+      Foreman::Plugin.register :foretello_api_v21 do
+        requires_foreman '>= 1.7'
+
+        security_block :foretello_api_v21 do
+          permission :edit_discovered_hosts, {
+            :"api/v21/discovered_hosts" => [:rename]
+          }, :resource_type => '::Host::Discovered'
+        end
+
+      end
+    end
+
   end
 end
