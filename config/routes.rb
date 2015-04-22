@@ -5,6 +5,10 @@ Foreman::Application.routes.draw do
     # new v21 routes that point to v21
     scope "(:apiv)", :module => :v21, :defaults => {:apiv => 'v21'}, :apiv => /v1|v2|v21/, :constraints => ApiConstraints.new(:version => '21') do
 
+      resources :foreman_tasks, :only => [:index, :show] do
+        post :bulk_search, :on => :collection
+      end
+
       resources :architectures, :except => [:new, :edit]
 
       resources :audits, :only => [:index, :show]
