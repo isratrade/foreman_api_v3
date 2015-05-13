@@ -11,7 +11,7 @@ module ForetelloApiV21
         requires_foreman '>= 1.7'
 
         security_block :foretello_api_v21 do
-          permission :edit_discovered_hosts, {
+          permission :rename_discovered_hosts, {
             :"api/v21/discovered_hosts" => [:rename]
           }, :resource_type => '::Host::Discovered'
         end
