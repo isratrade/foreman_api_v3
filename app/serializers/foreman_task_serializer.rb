@@ -11,7 +11,7 @@ class ForemanTaskSerializer < ActiveModel::Serializer
 
   def humanized_input
     if object.humanized[:input].kind_of?(Array)
-      object.humanized[:input].join('; ')
+      object.humanized[:input].uniq.join('; ')
     else
       object.humanized[:input]
     end
@@ -23,7 +23,7 @@ class ForemanTaskSerializer < ActiveModel::Serializer
 
   def humanized_errors
     if object.humanized[:errors].kind_of?(Array)
-      object.humanized[:errors].join('; ')
+      object.humanized[:errors].uniq.join('; ')
     else
       object.humanized[:errors]
     end
