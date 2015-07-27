@@ -5,7 +5,21 @@ module Api
       include Api::Version21
 
       def index
-        @foreman_tasks = ForemanTasks::Task.limit(30).order('id desc') # TODO - temp, change in future
+        @foreman_tasks = ForemanTasks::Task.search_for(params[:search]).select('DISTINCT foreman_tasks_tasks.*')
+
+        ordering_params =  {
+                             sort_by: params[:sort_by] || 'started_at',
+                             sort_order: params[:sort_order] || 'DESC'
+                           }
+        @foreman_tasks = ordering_scope(@foreman_tasks, ordering_params)
+
+
+        pagination_params = {
+                              page: params[:page] || 1,
+                              per_page: params[:per_page] || 20
+                            }
+        @foreman_tasks = pagination_scope(@foreman_tasks, pagination_params)
+
         render :json => @foreman_tasks, :each_serializer => ForemanTaskSerializer
       end
 
