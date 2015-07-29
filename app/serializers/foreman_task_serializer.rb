@@ -4,6 +4,7 @@ class ForemanTaskSerializer < ActiveModel::Serializer
   attributes :progress, :input, :output, :cli_example, :external_id
   attributes :humanized, :humanized_name, :humanized_input, :humanized_output, :humanized_errors
   attributes :parent_task, :sub_tasks, :running_steps, :failed_steps, :locks
+  attributes :repository
 
   def humanized_name
     object.humanized[:action]
@@ -27,6 +28,10 @@ class ForemanTaskSerializer < ActiveModel::Serializer
     else
       object.humanized[:errors]
     end
+  end
+
+  def repository
+    object.input[:repository][:name] if object.input[:repository]
   end
 
 end
