@@ -6,11 +6,12 @@ module Api
 
       def index
         super
-        render :json => @hosts, :each_serializer => HostSerializer
+        @hosts = @hosts.where(:id => params[:id]) if params[:id].present?
+        render :json => @hosts, :each_serializer => HostBaseSerializer
       end
 
       def show
-        render :json => @host, :serializer => HostSerializer
+        render :json => @host, :serializer => HostBaseSerializer
       end
 
     end
