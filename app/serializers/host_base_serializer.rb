@@ -4,7 +4,7 @@ class HostBaseSerializer < ActiveModel::Serializer
 
   attributes :id, :name, :type, :ip, :mac,
              :created_at, :updated_at,
-             :cpus, :memory_human_size, :disks_human_size,
+             :cpus, :memory_human_size, :disks_human_size, :disk_count,
              :subnet_to_s, :is_virtual,
 
              :environment_name, :hostgroup_name, :compute_resource_name, :domain_name,
@@ -36,6 +36,14 @@ class HostBaseSerializer < ActiveModel::Serializer
     else
       return "0 MB" if object.memory.blank? || object.memory.to_i == 0
       number_to_human_size(object.memory.to_i * 1024 * 1024)
+    end
+  end
+
+  def disk_count
+    if is_managed
+      # what is fact for disk count of managed houst??
+    else
+      object.disk_count
     end
   end
 
