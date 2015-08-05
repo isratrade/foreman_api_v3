@@ -25,7 +25,7 @@ class HostBaseSerializer < ActiveModel::Serializer
   def cpus
     if is_managed
       object.facts_hash['processorcount']
-    else
+    elsif is_discovered
       object.cpu_count
     end
   end
@@ -33,7 +33,7 @@ class HostBaseSerializer < ActiveModel::Serializer
   def memory_human_size
     if is_managed
       object.facts_hash['memorysize']
-    else
+    elsif is_discovered
       return "0 MB" if object.memory.blank? || object.memory.to_i == 0
       number_to_human_size(object.memory.to_i * 1024 * 1024)
     end
@@ -42,7 +42,7 @@ class HostBaseSerializer < ActiveModel::Serializer
   def disk_count
     if is_managed
       # what is fact for disk count of managed houst??
-    else
+    elsif is_discovered
       object.disk_count
     end
   end
@@ -50,7 +50,7 @@ class HostBaseSerializer < ActiveModel::Serializer
   def disks_human_size
     if is_managed
       object.facts_hash['blockdevice_vda_size']
-    else
+    elsif is_discovered
       return "0 MB" if object.disks_size.blank? || object.disks_size.to_i == 0
       number_to_human_size(object.disks_size.to_i * 1024 * 1024)
     end
