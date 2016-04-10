@@ -2,8 +2,10 @@ class OrganizationSerializer < ActiveModel::Serializer
 
   embed :ids, include: true
 
-  attributes :id, :name, :title, :label, :description,
+  attributes :id, :name, :title, :description,
              :created_at, :updated_at
+
+             # katello to add label
 
  #  has_many :lifecycle_environments
  #  has_many :hosts
