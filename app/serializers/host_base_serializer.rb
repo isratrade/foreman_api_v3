@@ -1,6 +1,5 @@
 class HostBaseSerializer < ActiveModel::Serializer
   include ActionView::Helpers::NumberHelper
-  embed :ids, include: true
 
   attributes :id, :name, :type, :ip, :mac,
              :created_at, :updated_at,

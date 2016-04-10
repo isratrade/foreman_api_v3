@@ -1,7 +1,5 @@
 class OperatingsystemSerializer < ActiveModel::Serializer
 
-  embed :ids, include: true
-
   attributes :id, :name,
              :description, :major, :minor, :family, :release_name,
              :created_at, :updated_at

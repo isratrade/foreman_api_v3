@@ -1,5 +1,5 @@
 class HostManagedSerializer < ActiveModel::Serializer
-  embed :ids, include: true
+
   attributes :id, :name, :type,
              :ip, :last_report, :mac,
              :created_at, :updated_at,

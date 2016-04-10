@@ -1,5 +1,5 @@
 class ImageSerializer < ActiveModel::Serializer
-  embed :ids, include: true
+
   attributes :id, :name,
              :uuid, :username,
              :created_at, :updated_at

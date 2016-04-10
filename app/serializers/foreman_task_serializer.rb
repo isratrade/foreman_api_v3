@@ -1,5 +1,5 @@
 class ForemanTaskSerializer < ActiveModel::Serializer
-  embed :ids, include: true
+
   attributes :id, :label, :pending, :username, :started_at, :ended_at, :state, :result
   attributes :progress, :input, :output, :cli_example, :external_id
   attributes :humanized, :humanized_name, :humanized_input, :humanized_output, :humanized_errors

@@ -1,7 +1,5 @@
 class PtableSerializer < ActiveModel::Serializer
 
-  embed :ids, include: true
-
   attributes :id, :name,
              :os_family, :layout,
              :created_at, :updated_at

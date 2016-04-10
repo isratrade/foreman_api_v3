@@ -1,7 +1,5 @@
 class SmartClassParameterSerializer < ActiveModel::Serializer
 
-  embed :ids, include: true
-
   attributes :id, :key, :default_value
 
  # has_many :hosts

@@ -1,5 +1,4 @@
 class ComputeResourceSerializer < ActiveModel::Serializer
-  embed :ids, include: true
   attributes :id, :name, :description, :url, :created_at, :updated_at
   # TODO CHANGE  attributes :provider_friendly_name => 'provider'
   # has_many :hosts

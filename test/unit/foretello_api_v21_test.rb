@@ -1,6 +1,6 @@
 require 'test_plugin_helper'
 
-class ForetelloApiV21Test < ActiveSupport::TestCase
+class ForemanApiV3Test < ActiveSupport::TestCase
   setup do
     User.current = User.find_by_login "admin"
   end

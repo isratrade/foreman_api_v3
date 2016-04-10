@@ -1,6 +1,6 @@
-# ForetelloApiV21
+# ForemanApiV3
 
-Plugin for Foreman & Katello API v2.1, which is based on v2 controllers but uses the response format according to the [jsonapi.org  specification](http://www.jsonapi.org).
+Plugin for Foreman API v3, which is based on v2 controllers but uses the response format according to the [jsonapi.org  specification](http://www.jsonapi.org).
 
 ## Installation
 
@@ -8,27 +8,27 @@ See [How_to_Install_a_Plugin](http://projects.theforeman.org/projects/foreman/wi
 for how to install Foreman plugins
 
 ```ruby
-gem 'foretello_api_v21', :git => 'https://github.com/fusor/foretello_api_v21.git
+gem 'foreman_api_v3', :git => 'https://github.com/fusor/foreman_api_v3.git
 ```
 
 ## Usage
 
 ```
-GET http://example.com/api/v21/hosts
+GET http://example.com/api/v3/hosts
 ```
 
 ## Format
 
-The foremat changes from v2 to v2.1 over v2 are in four main areas as follows:
+The foremat changes from v2 to v3 over v2 are in four main areas as follows:
 
-#### 1) Create non-nested routes in v2.1 that don't exist in v2
+#### 1) Create non-nested routes in v3 that don't exist in v2
 
 ```
 POST /api/v2/puppetclasses/33/smart_class_parameters/44/override_values
 ```
 
 ```
-POST /api/v21/override_values?puppetclass_id=33&smart_class_parameter_id=44
+POST /api/v3/override_values?puppetclass_id=33&smart_class_parameter_id=44
 ```
 
 #### 2) Create root nodes according to object name
@@ -46,7 +46,7 @@ GET /api/v2/domains
 ```
 
 ```
-GET /api/v21/domains
+GET /api/v3/domains
 
   { domains: [{
       ...
@@ -66,7 +66,7 @@ GET /api/v2/domains/1
 ```
 
 ```
-GET /api/v21/domains
+GET /api/v3/domains
   { domain: {
       id: 1,
       ...
@@ -99,7 +99,7 @@ GET /api/v2/hostgroups/1
 ```
 
 ```
-GET /api/v21/hostgroups/1
+GET /api/v3/hostgroups/1
 
 {
     "hostgroup": {

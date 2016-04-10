@@ -1,5 +1,5 @@
 class MediumSerializer < ActiveModel::Serializer
-  embed :ids, include: true
+
   attributes :id, :name,
              :path, :os_family,
              :media_path, :config_path, :image_path,

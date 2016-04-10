@@ -1,6 +1,5 @@
 class DiscoveredHostSerializer < ActiveModel::Serializer
   include ActionView::Helpers::NumberHelper
-  embed :ids, include: true
   attributes :id, :name, :type,
              :ip, :last_report, :mac,
              :subnet_id, :subnet_name,

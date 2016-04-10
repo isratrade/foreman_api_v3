@@ -1,5 +1,4 @@
 class ConfigTemplateSerializer < ActiveModel::Serializer
-  embed :ids, include: true
   attributes :id, :name, :snippet, :audit_comment, :created_at, :updated_at
 
  # has_many :hostgroups

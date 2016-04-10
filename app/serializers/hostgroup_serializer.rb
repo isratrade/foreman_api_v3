@@ -1,5 +1,5 @@
 class HostgroupSerializer < ActiveModel::Serializer
-  embed :ids, include: true
+
   attributes :id, :name, :title, :parent_id, :created_at, :updated_at
 
   has_many :locations

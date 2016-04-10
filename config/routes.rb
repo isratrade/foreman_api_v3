@@ -2,8 +2,8 @@ Foreman::Application.routes.draw do
 
   namespace :api, :defaults => {:format => 'json'} do
 
-    # new v21 routes that point to v21
-    scope "(:apiv)", :module => :v21, :defaults => {:apiv => 'v21'}, :apiv => /v1|v2|v21/, :constraints => ApiConstraints.new(:version => '21') do
+    # new v3 routes that point to v3
+    scope "(:apiv)", :module => :v3, :defaults => {:apiv => 'v3'}, :apiv => /v1|v2|v3/, :constraints => ApiConstraints.new(:version => '3') do
 
       resources :foreman_tasks, :only => [:index, :show] do
         post :bulk_search, :on => :collection
