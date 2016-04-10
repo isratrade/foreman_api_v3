@@ -17,6 +17,8 @@ module ForetelloApiV21
           }, :resource_type => '::Host::Discovered'
         end
 
+        ActiveModelSerializers.config.adapter = :json_api
+
         apipie_documented_controllers ["#{ForetelloApiV21::Engine.root}/app/controllers/api/v21/*.rb"]
       end
     end
