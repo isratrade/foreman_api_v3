@@ -3,12 +3,13 @@ require 'active_model_serializers'
 module ForetelloApiV21
   class Engine < ::Rails::Engine
 
+    # support pre-4 Rails versions
     config.autoload_paths += Dir["#{config.root}/app/controllers/concerns"]
     config.autoload_paths += Dir["#{config.root}/app/serializers"]
 
-    initializer 'foretello_api_v21.register_plugin', :after => :finisher_hook do |app|
+    initializer 'foretello_api_v21.register_plugin', :before => :finisher_hook do |app|
       Foreman::Plugin.register :foretello_api_v21 do
-        requires_foreman '>= 1.7'
+        requires_foreman '>= 1.11.0'
 
         security_block :foretello_api_v21 do
           permission :rename_discovered_hosts, {
