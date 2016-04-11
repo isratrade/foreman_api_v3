@@ -12,6 +12,15 @@ module ForemanApiV3
         requires_foreman '>= 1.11.0'
 
         ActiveModelSerializers.config.adapter = :json_api
+#        Mime::Type.register "application/json", :json, %w( text/x-json application/jsonrequest application/vnd.api+json )
+        # # wrap_parameters.rb
+        # ActiveSupport.on_load(:action_controller) do
+        #   wrap_parameters format: [:json, :api_json]
+        # end
+
+        #intializers/custom_mime_type.rb
+        # Mime::Type.unregister :json
+        # Mime::Type.register "application/json", :json, %w( text/x-json application/jsonrequest application/vnd.api+json application/json )
 
         # security_block :foreman_api_v3 do
         #   permission :rename_discovered_hosts, {
