@@ -13,6 +13,10 @@ module Api
         render :json => @ptable, :serializer => PtableSerializer
       end
 
+      def update
+        render :json => @ptable, :serializer => PtableSerializer
+      end
+
     end
   end
 end
