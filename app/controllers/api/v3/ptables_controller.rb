@@ -19,4 +19,6 @@ module Api
 
     end
   end
+
 end
+http://kehilanews.co.il/כתבה-מטעה-על-מנהיג-יהודי-משיחי-בתקשורת
