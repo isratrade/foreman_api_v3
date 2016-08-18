@@ -1,6 +1,6 @@
 module Api
   module V3
-    class FiltersController < V3::BaseController
+    class FiltersController < V2::FiltersController
 
       include Api::Version3
 

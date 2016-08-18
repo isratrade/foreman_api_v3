@@ -1,12 +1,17 @@
 class SmartVariableSerializer < ActiveModel::Serializer
 
-  attributes :id, :key, :default_value
+  attribute  :key, key: :variable
+  attributes :id, :default_value, :description, :parameter_type,
+             :hidden_value, :hidden_value?,
+             :validator_type, :validator_rule,
+             :merge_overrides, :merge_default, :avoid_duplicates,
+             :override_value_order,
+             :validator_type, :validator_rule,
+             :validator_type, :validator_rule,
 
- # has_many :hosts
-  # has_many :hostgroups
-  # has_many :environments
-  # has_many :config_groups
-#  has_many :lookup_keys
-#  has_many :class_params
+  attribute :override_values_count
 
+  has_one :puppetclass
+
+  has_many :override_values
 end

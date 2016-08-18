@@ -4,8 +4,7 @@ class PtableSerializer < ActiveModel::Serializer
              :os_family, :layout,
              :created_at, :updated_at
 
-#  has_many :hosts
-#  has_many :hostgroups
-#  has_many :operatingsystems
-
+  has_many :operatingsystems
+  has_many :locations
+  has_many :organizations
 end

@@ -10,20 +10,9 @@ module Api
       end
 
       def show
+        render :json => @model, :serializer => ModelSerializer
       end
 
-      # def create
-      #   @model = Model.new(params[:model])
-      #   process_response @model.save
-      # end
-
-      # def update
-      #   process_response @model.update_attributes(params[:model])
-      # end
-
-      # def destroy
-      #   process_response @model.destroy
-      # end
     end
   end
 end

@@ -13,12 +13,7 @@ module Api
         render :json => @ptable, :serializer => PtableSerializer
       end
 
-      def update
-        render :json => @ptable, :serializer => PtableSerializer
-      end
-
     end
   end
 
 end
-http://kehilanews.co.il/כתבה-מטעה-על-מנהיג-יהודי-משיחי-בתקשורת

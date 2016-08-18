@@ -1,6 +1,6 @@
 module Api
   module V3
-    class SmartProxiesController < V3::BaseController
+    class SmartProxiesController < V2::SmartProxiesController
 
       include Api::Version3
 
