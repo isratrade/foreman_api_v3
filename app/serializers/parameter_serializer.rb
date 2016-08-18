@@ -4,7 +4,7 @@ class ParameterSerializer < ActiveModel::Serializer
 
 #  has_one :host
   # has_one :hostgroup
-  # has_one :domain
+  has_one :domain
 #  has_one :operatingsystem
 
 end

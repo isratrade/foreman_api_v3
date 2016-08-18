@@ -6,7 +6,7 @@ class LocationSerializer < ActiveModel::Serializer
 #  has_many :hosts
 
  #  has_many :hostgroups
- #  has_many :subnets
+  has_many :subnets
   has_many :domains
  # # has_many :smart_proxies
  #  has_many :config_templates

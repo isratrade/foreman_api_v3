@@ -5,8 +5,8 @@ class OrganizationSerializer < ActiveModel::Serializer
  #  has_many :lifecycle_environments
  #  has_many :hosts
  #  has_many :hostgroups
- #  has_many :subnets
- has_many :domains
+  has_many :subnets
+  has_many :domains
  #  has_many :smart_proxies
  #  has_many :config_templates
  #  has_many :media
